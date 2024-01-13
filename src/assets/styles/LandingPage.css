@@ -1,0 +1,51 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css';
+
+
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+  background-image: url("gifbackground.gif");
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+}
+
+.maintext {
+  font-size: 5em; /* Tamanho da fonte (ajuste conforme necessário) */
+  text-align: center;
+  font-family: "Rubik";
+  color: white;
+  margin-bottom: 0px;
+}
+
+.slogan {
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.btnbox {
+  display: flex;
+  justify-content: center;
+}
+
+.btngohome {
+  border: 1px solid #6a0000; /* Adiciona uma borda para destacar o botão */
+  border-radius: 50px;
+  background-color: #6a0000; /* Adiciona cor de fundo ao botão */
+
+  text-decoration: none;
+  
+  color: white;
+  font-family: monospace;
+  font-size: 17px;
+  padding: 13px 52px;
+  cursor: pointer;
+}

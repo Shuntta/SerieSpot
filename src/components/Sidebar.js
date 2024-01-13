@@ -1,0 +1,37 @@
+import React from 'react';
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import * as IoIcons from "react-icons/io";
+
+export const SidebarData = [
+  {
+    title: "Home",
+    path: "/",
+    icon: <AiIcons.AiFillHome />,
+    cName: "nav-text",
+  },
+  {
+    title: "Series",
+    path: "/series",
+    icon: <AiIcons.AiFillHome />,
+    cName: "nav-text",
+  },
+  {
+    title: "My Series",
+    path: "/mySeries",
+    icon: <AiIcons.AiFillHome />,
+    cName: "nav-text",
+  },
+  {
+    title: "Review",
+    path: "/review",
+    icon: <AiIcons.AiFillHome />,
+    cName: "nav-text",
+  },
+  {
+    title: "Sign In",
+    path: "/signIn",
+    icon: <AiIcons.AiFillHome />,
+    cName: "nav-text",
+  },
+];

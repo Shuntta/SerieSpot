@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(55, 55, 55);
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    width: 160vh;
+    /* border: 10px solid rgb(0, 0, 0); */
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    /* flex-wrap: wrap; */
+    /* align-content: flex-start; */
+    /* column-gap: 1em; */
+    /* row-gap: 1em; */
+}
+
+.movie {
+    width: 300px;
+    height: 450px;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 15px;
+    
+    background-size: cover;
+}
+
+#movie1 {
+    background-color: rgb(255, 0, 0);
+    background-image: url("lucifer.jpg");
+    /* align-self: start; */
+    /* order: 2; */
+}
+
+#movie2 {
+    background-color: rgb(0, 0, 255);
+    background-image: url("riverdale.jpg");
+    /* align-self: center; */
+    /* order: 0; */
+}
+
+#movie3 {
+    background-color: rgb(0, 255, 0);
+    background-image: url("f1_drive_to_survive.jpg");
+    /* align-self: center; */
+    /* order: -1; */
+}
