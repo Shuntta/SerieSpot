@@ -1,0 +1,3 @@
+// APLI KEY a56adfaf07483c21e08750fb1f3a534b
+// API KEY eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNTZhZGZhZjA3NDgzYzIxZTA4NzUwZmIxZjNhNTM0YiIsInN1YiI6IjY1YTJjZDM4MjM4NTEzMDEyODYyODBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xz-di-1iCiNkT5uYMN0yFKwp7pzs-iyZD1D3nJueDUw
+// https://www.themoviedb.org/settings/api

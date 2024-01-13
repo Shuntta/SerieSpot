@@ -1,19 +1,18 @@
+/* Home.css */
 body {
-    background-color: rgb(55, 55, 55);
+    /*background-color: rgb(55, 55, 55);
     color: #ffffff;
+    */
+    background-image: url(test2.png);
 }
 
 .container {
     display: flex;
     width: 160vh;
-    /* border: 10px solid rgb(0, 0, 0); */
+    height: 70vh;
     flex-direction: row;
     justify-content: space-evenly;
-    /* align-items: center; */
-    /* flex-wrap: wrap; */
-    /* align-content: flex-start; */
-    /* column-gap: 1em; */
-    /* row-gap: 1em; */
+    padding-left: 4%;
 }
 
 .movie {
@@ -22,27 +21,60 @@ body {
     font-size: 1em;
     text-align: center;
     border-radius: 15px;
-    
     background-size: cover;
+    z-index: 1;
 }
 
 #movie1 {
     background-color: rgb(255, 0, 0);
     background-image: url("lucifer.jpg");
-    /* align-self: start; */
-    /* order: 2; */
 }
 
 #movie2 {
     background-color: rgb(0, 0, 255);
     background-image: url("riverdale.jpg");
-    /* align-self: center; */
-    /* order: 0; */
 }
 
 #movie3 {
     background-color: rgb(0, 255, 0);
     background-image: url("f1_drive_to_survive.jpg");
-    /* align-self: center; */
-    /* order: -1; */
+}
+
+#movie4 {
+    background-color: rgb(255, 0, 0);
+}
+
+#movie5 {
+    background-color: rgb(0, 0, 255);
+}
+
+#movie6 {
+    background-color: rgb(0, 255, 0);
+}
+
+
+
+.swiper-slide {
+    position: relative;
+    margin-right: 20px;
+    width: 300px; /* Ajuste a largura do slide conforme necessário */
+    z-index: 1;
+}
+
+
+.swiper-pagination-bullet {
+    width: 15px; /* Ajuste a largura dos pontos conforme necessário */
+    height: 15px; /* Ajuste a altura dos pontos conforme necessário */
+    background-color: rgb(119, 122, 122); /* Troque para a cor branca desejada */
+    opacity: 1; /* Ajuste a opacidade conforme necessário */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: rgb(255, 255, 255); /* Cor branca para o ponto de paginação ativo */
+    opacity: 1; /* Opacidade total para o ponto de paginação ativo */
+}
+
+
+.container .swiper-pagination {
+    top: var(--swiper-pagination-top, 470px);
 }
