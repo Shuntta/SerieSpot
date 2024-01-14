@@ -1,15 +1,16 @@
 /* Home.css */
+@import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css';
+
 body {
-    /*background-color: rgb(55, 55, 55);
-    color: #ffffff;
-    */
+    /* background-color: rgb(55, 55, 55);
+    color: #ffffff; */
     background-image: url(test2.png);
 }
 
 .container {
     display: flex;
-    width: 160vh;
-    height: 70vh;
+    width: 170vh;
+    height: 60vh;
     flex-direction: row;
     justify-content: space-evenly;
     padding-left: 4%;
@@ -23,6 +24,7 @@ body {
     border-radius: 15px;
     background-size: cover;
     z-index: 1;
+    margin-bottom: 30px; /* Aumente o espaço abaixo dos cards */
 }
 
 #movie1 {
@@ -54,27 +56,79 @@ body {
 
 
 
+.swiper-button-next{
+    margin-right: -8px; /* Ajuste o valor conforme necessário */
+    color: white;
+  }
+
+.swiper-button-prev {
+  margin-right: 1px; /* Ajuste o valor conforme necessário */
+  color: white;
+}
+
+
+
+.swiper-pagination {
+    width: 10px; /* Ajuste a largura conforme necessário */
+    height: 10px; /* Ajuste a altura conforme necessário */
+}
+
 .swiper-slide {
     position: relative;
     margin-right: 20px;
-    width: 300px; /* Ajuste a largura do slide conforme necessário */
+    width: 300px;
+    /* Ajuste a largura do slide conforme necessário */
     z-index: 1;
 }
 
-
 .swiper-pagination-bullet {
-    width: 15px; /* Ajuste a largura dos pontos conforme necessário */
-    height: 15px; /* Ajuste a altura dos pontos conforme necessário */
-    background-color: rgb(119, 122, 122); /* Troque para a cor branca desejada */
-    opacity: 1; /* Ajuste a opacidade conforme necessário */
+    width: 15px;
+    /* Ajuste a largura dos pontos conforme necessário */
+    height: 15px;
+    /* Ajuste a altura dos pontos conforme necessário */
+    background-color: rgb(119, 122, 122);
+    /* Troque para a cor branca desejada */
+    opacity: 1;
+    /* Ajuste a opacidade conforme necessário */
 }
 
 .swiper-pagination-bullet-active {
-    background-color: rgb(255, 255, 255); /* Cor branca para o ponto de paginação ativo */
-    opacity: 1; /* Opacidade total para o ponto de paginação ativo */
+    background-color: rgb(255, 255, 255);
+    /* Cor branca para o ponto de paginação ativo */
+    opacity: 1;
+    /* Opacidade total para o ponto de paginação ativo */
 }
-
 
 .container .swiper-pagination {
-    top: var(--swiper-pagination-top, 470px);
+    top: var(--swiper-pagination-top, 76%);
+   
 }
+
+
+
+
+
+/* Adicione estas novas regras para os botões */
+button {
+    border: 1px solid #6a0000; /* Adiciona uma borda para destacar o botão */
+    border-radius: 50px;
+    background-color: #6a0000; /* Adiciona cor de fundo ao botão */
+  
+    color: white;
+    padding: 5px 30px;
+    cursor: pointer;
+
+    font-size: 20px !important;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    
+}
+
+
+
+.tudo{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
