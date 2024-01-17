@@ -8,9 +8,10 @@ body {
 }
 
 .container {
+    position: relative;
     display: flex;
     width: 170vh;
-    height: 60vh;
+    height: 80vh;
     flex-direction: row;
     justify-content: space-evenly;
     padding-left: 4%;
@@ -100,7 +101,7 @@ body {
 }
 
 .container .swiper-pagination {
-    top: var(--swiper-pagination-top, 76%);
+    top: var(--swiper-pagination-top, 73%);
    
 }
 
@@ -109,7 +110,7 @@ body {
 
 
 /* Adicione estas novas regras para os botões */
-button {
+.Review {
     border: 1px solid #6a0000; /* Adiciona uma borda para destacar o botão */
     border-radius: 50px;
     background-color: #6a0000; /* Adiciona cor de fundo ao botão */
@@ -123,6 +124,20 @@ button {
     
 }
 
+.New-review {
+    border: 1px solid #6a0000; /* Cor da borda do botão New Review */
+    border-radius: 10px; /* Raio da borda do botão New Review */
+    background-color: #6a0000;/* Cor de fundo do botão New Review */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    top: 10px; /* Distância do topo em relação ao contêiner pai */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Corrige o deslocamento horizontal */
+    z-index: 2; /* Coloca o botão acima dos filmes (z-index maior) */
+}
 
 
 .tudo{
@@ -130,5 +145,6 @@ button {
     flex-direction: column;
     gap: 30px;
     align-items: center;
+    padding-top: 25%;
 }
 

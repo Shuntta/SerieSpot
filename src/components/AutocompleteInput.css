@@ -1,0 +1,35 @@
+/* AutocompleteInput.css */
+.autocomplete-input-container {
+  width: 100%;
+}
+
+.autocomplete-input {
+  width: 100%;
+  padding: 15px 10px;
+  border: none;
+  border-bottom: 1px solid #645979;
+  outline: none;
+  border-radius: 5px 5px 0 0;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+.list {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0 0 5px 5px;
+}
+
+.list-items {
+  padding: 10px 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-items:last-child {
+  border-bottom: none;
+}
+
+.list-items:hover {
+  background-color: #dddddd;
+}

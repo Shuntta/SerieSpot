@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import LandingPage from "./views/LandingPage";
 import "./App.css";
+import CreateReview from "./views/CreateReview";
 
 function App() {
   return (
@@ -18,6 +19,16 @@ function App() {
                 <>
                   <Navbar />
                   <Home />
+                </>
+              }
+            />
+
+            <Route
+              path="/CreateReview"
+              element={
+                <>
+                  <Navbar />
+                  <CreateReview />
                 </>
               }
             />
