@@ -5,6 +5,8 @@ import Home from "./views/Home";
 import LandingPage from "./views/LandingPage";
 import "./App.css";
 import CreateReview from "./views/CreateReview";
+import Login from "./views/Login";
+import SignIn from "./views/SignIn";
 
 function App() {
   return (
@@ -29,6 +31,26 @@ function App() {
                 <>
                   <Navbar />
                   <CreateReview />
+                </>
+              }
+            />
+
+            <Route
+              path="/Login"
+              element={
+                <>
+                  <Navbar />
+                  <Login />
+                </>
+              }
+            />
+
+            <Route
+              path="/SignIn"
+              element={
+                <>
+                  <Navbar />
+                  <SignIn />
                 </>
               }
             />
