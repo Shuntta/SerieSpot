@@ -178,3 +178,13 @@ ul {
   border-radius: 10px;
   border-color: #fff;
 }
+
+.body-input,
+.user-input {
+  color: white;
+}
+
+.user-input,
+.user-input label {
+  color: white !important;
+}

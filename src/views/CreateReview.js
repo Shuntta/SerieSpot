@@ -94,7 +94,7 @@ const CreateReview = () => {
             fontSize: "15px",
             lineHeight: "3",
             verticalAlign: "top",
-            color: "#6e6e6e50",
+            color: "white",
           }}
         >
           By{" "}

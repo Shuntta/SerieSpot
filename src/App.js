@@ -7,6 +7,7 @@ import "./App.css";
 import CreateReview from "./views/CreateReview";
 import Login from "./views/Login";
 import SignIn from "./views/SignIn";
+import MySeries from "./views/MySeries"; // Importe a sua página MySeries
 
 function App() {
   return (
@@ -51,6 +52,17 @@ function App() {
                 <>
                   <Navbar />
                   <SignIn />
+                </>
+              }
+            />
+
+            
+            <Route
+              path="/MySeries"
+              element={
+                <>
+                  <Navbar />
+                  <MySeries />
                 </>
               }
             />

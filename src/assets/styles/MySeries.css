@@ -1,0 +1,29 @@
+.tudo {
+  padding-top: 50px; /* Ajuste o valor conforme necessário */
+}
+
+
+.watchedText{
+    color: white;
+    padding-left: 0px;
+}
+.containerWatched {
+  position: relative;
+  display: flex;
+  width: 100vh;
+  height: 30vh;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-left: 4%;
+}
+
+.movie {
+  width: 150px; /* Ajuste o tamanho conforme necessário */
+  height: 225px; /* Ajuste o tamanho conforme necessário */
+  font-size: 1em;
+  text-align: center;
+  border-radius: 15px;
+  background-size: contain;
+  z-index: 1;
+  margin: 0 5px; /* Ajuste os valores conforme necessário (top right bottom left) */
+}
