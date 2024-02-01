@@ -2,11 +2,16 @@
   padding-top: 50px; /* Ajuste o valor conforme necessário */
 }
 
-
-.watchedText{
-    color: white;
-    padding-left: 0px;
+.watchedText {
+  color: white;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Ajuste conforme necessário para o espaçamento entre os containers */
+}
+
 .containerWatched {
   position: relative;
   display: flex;
@@ -26,4 +31,26 @@
   background-size: contain;
   z-index: 1;
   margin: 0 5px; /* Ajuste os valores conforme necessário (top right bottom left) */
+}
+
+
+.containerLiked {
+  position: relative;
+  display: flex;
+  width: 100vh;
+  height: 30vh;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-left: 4%;
+}
+
+
+.containerToWatch {
+  position: relative;
+  display: flex;
+  width: 100vh;
+  height: 30vh;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-left: 4%;
 }
