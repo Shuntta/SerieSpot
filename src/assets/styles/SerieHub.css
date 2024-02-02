@@ -1,0 +1,40 @@
+.left-SerieHub{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15%;
+    padding-top: 5%;
+
+}
+
+
+.movieTest {
+    width: 380px;
+    height: 550px;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 15px;
+    background-size: cover;
+    z-index: 1;
+    margin-bottom: 30px; /* Aumente o espaço abaixo dos cards */
+}
+
+
+.vertical-line-SerieHub {
+    border-left: 2px solid rgba(255, 255, 255, 0.356);
+    height: 60%;
+    margin: 1% 23% ;
+    position: absolute; /* Adicione esta linha para posicionar absolutamente em relação ao .left-SerieHub */
+    top: 1; /* Ajuste conforme necessário para a posição vertical desejada */
+    z-index: 1; /* Defina um valor maior do que o z-index do .movieTest */
+}
+
+.reviews {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 15px;
+    row-gap: 35px;
+    margin-bottom: 30px;
+
+}

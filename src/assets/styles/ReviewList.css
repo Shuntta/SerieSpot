@@ -1,0 +1,54 @@
+.review-list {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-left: 55px;
+   
+  }
+  
+  .card {
+    background-color: rgb(244, 241, 241);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 370px;
+    height: 300px;
+    position: relative;
+  }
+  
+  .card-content {
+    text-align: center;
+    position: relative;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #777;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+
+  .PreviewText {
+    position: absolute;
+    bottom: -180px; 
+    text-align: left;
+  }

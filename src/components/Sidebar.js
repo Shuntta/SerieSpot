@@ -23,8 +23,8 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Review",
-    path: "/review",
+    title: "SerieHub",
+    path: "/SerieHub",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },

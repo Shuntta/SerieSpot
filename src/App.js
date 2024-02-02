@@ -8,6 +8,7 @@ import CreateReview from "./views/CreateReview";
 import Login from "./views/Login";
 import SignIn from "./views/SignIn";
 import MySeries from "./views/MySeries"; // Importe a sua página MySeries
+import SerieHub from "./views/SerieHub";
 
 function App() {
   return (
@@ -66,6 +67,19 @@ function App() {
                 </>
               }
             />
+
+
+              <Route
+              path="/SerieHub"
+              element={
+                <>
+                <Navbar />
+                <SerieHub />
+                </>
+              }
+              />
+
+
           </Routes>
         </div>
       </div>

@@ -128,7 +128,7 @@ const CreateReview = () => {
               >
                 <label>Username</label>
                 <textarea
-                  required
+                  required  
                   value={user}
                   onChange={(e) => setUser(e.target.value)}
                   style={{ height: "13px" }}
