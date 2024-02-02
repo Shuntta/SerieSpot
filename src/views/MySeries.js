@@ -1,35 +1,35 @@
-import "../assets/styles/MySeries.css";
+  import "../assets/styles/MySeries.css";
 
-const MySeries = () => {
-  return (
-    <div className="tudo">
-      <div className="container">
-        <div className="containerWatched">
-          <span className="watchedText">Watched</span>
-          <div className="movie" id="movie1" />
-          <div className="movie" id="movie2" />
-          <div className="movie" id="movie3" />
-          <div className="movie" id="movie4" />
-        </div>
+  const MySeries = () => {
+    return (
+      <div className="tudoMySeries">
+        <div className="containerMySeries">
+          <div className="containerWatched">
+            <span className="watchedText">Watched</span>
+            <div className="mySeriesMovie" id="movie1" />
+            <div className="mySeriesMovie" id="movie2" />
+            <div className="mySeriesMovie" id="movie3" />
+            <div className="mySeriesMovie" id="movie4" />
+          </div>
 
-        <div className="containerLiked">
-          <span className="watchedText">Like</span>
-          <div className="movie" id="movie1" />
-          <div className="movie" id="movie2" />
-          <div className="movie" id="movie3" />
-          <div className="movie" id="movie4" />
-        </div>
+          <div className="containerLiked">
+            <span className="watchedText">Like</span>
+            <div className="mySeriesMovie" id="movie1" />
+            <div className="mySeriesMovie" id="movie2" />
+            <div className="mySeriesMovie" id="movie3" />
+            <div className="mySeriesMovie" id="movie4" />
+          </div>
 
-        <div className="containerToWatch">
-          <span className="watchedText">ToWatch</span>
-          <div className="movie" id="movie1" />
-          <div className="movie" id="movie2" />
-          <div className="movie" id="movie3" />
-          <div className="movie" id="movie4" />
+          <div className="containerToWatch">
+            <span className="watchedText">ToWatch</span>
+            <div className="mySeriesMovie" id="movie1" />
+            <div className="mySeriesMovie" id="movie2" />
+            <div className="mySeriesMovie" id="movie3" />
+            <div className="mySeriesMovie" id="movie4" />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
-export default MySeries;
+  export default MySeries;

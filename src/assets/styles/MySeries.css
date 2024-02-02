@@ -1,4 +1,4 @@
-.tudo {
+.tudoMySeries {
   padding-top: 50px; /* Ajuste o valor conforme necessário */
 }
 
@@ -6,7 +6,7 @@
   color: white;
 }
 
-.container {
+.containerMySeries {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px; /* Ajuste conforme necessário para o espaçamento entre os containers */
@@ -22,16 +22,16 @@
   padding-left: 4%;
 }
 
-.movie {
-  width: 150px; /* Ajuste o tamanho conforme necessário */
-  height: 225px; /* Ajuste o tamanho conforme necessário */
-  font-size: 1em;
-  text-align: center;
-  border-radius: 15px;
-  background-size: contain;
-  z-index: 1;
-  margin: 0 5px; /* Ajuste os valores conforme necessário (top right bottom left) */
-}
+  .mySeriesMovie {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: 225px; /* Ajuste o tamanho conforme necessário */
+    font-size: 1em;
+    text-align: center;
+    border-radius: 15px;
+    background-size: contain;
+    z-index: 1;
+    margin: 0 5px; /* Ajuste os valores conforme necessário (top right bottom left) */
+  }
 
 
 .containerLiked {
