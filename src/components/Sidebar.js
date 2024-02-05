@@ -11,8 +11,8 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Series",
-    path: "/series",
+    title: "New Review",
+    path: "/CreateReview",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },

@@ -14,32 +14,35 @@
   }
     
   .card {
-    background-color: rgb(244, 241, 241);
+    background-color: rgba(244, 241, 241, 0.13);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 500px; /* Aumentado de 300px para 500px */
+    padding: 20px; /* Aumente o padding para dar mais espaço ao conteúdo */
+    width: 800px; /* Ajuste conforme necessário */
     height: 300px; /* Mantenha a altura como está */
-    position: relative;
+    display: flex; /* Adicionado para permitir alinhamento flexível do conteúdo */
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    position: relative; /* Mantenha como está */
 }
 
-  .card-content {
+.card-content {
     text-align: center;
-    position: relative;
-  }
-  
+    /* Removido position: relative; se não for necessário para posicionamento específico */
+}
   h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
   }
   
   p {
-    color: #777;
+    color: #ffffff;
   }
   
   a {
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
   }
   
   a:hover {
@@ -48,7 +51,8 @@
   
 
   .PreviewText {
-    position: absolute;
-    bottom: -180px; 
-    text-align: left;
-  }
+    position: static; /* Mude para static se não precisar posicionar absolutamente */
+    margin-top: 20px; /* Adicione uma margem superior se necessário */
+    text-align: center; /* Garante que o texto esteja centralizado */
+    color: #ffffff; /* Cor do texto, ajuste conforme necessário */
+}
