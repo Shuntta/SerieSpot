@@ -24,7 +24,7 @@ export const SidebarData = [
   },
   {
     title: "SerieHub",
-    path: "/SerieHub",
+    path: "/SerieHubNoId",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },

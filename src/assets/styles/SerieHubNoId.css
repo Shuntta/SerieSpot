@@ -1,0 +1,71 @@
+.tudoSerieSpot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Isso centralizará verticalmente na tela */
+
+  }
+  
+  .search-bar-container {
+    text-align: center;
+    margin-bottom: 20px; /* Espaço inferior para separar os resultados da pesquisa */
+  }
+  
+  .search-results {
+    text-align: center;
+    margin-top: 20px; /* Espaço superior para separar a barra de pesquisa */
+  }
+  
+  .search-results h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .search-results ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .search-results li {
+    margin: 5px 0;
+  }
+  
+  /* Estilo para os links dos resultados da pesquisa */
+  .search-results a {
+    text-decoration: none;
+    color: #0078d4; /* Cor do link */
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .search-results a:hover {
+    color: #004e9a; /* Cor do link ao passar o mouse */
+  }
+  
+  /* Estilo para a barra de pesquisa */
+  .search-bar-input {
+    padding: 10px;
+    border: 2px solid #0078d4; /* Cor da borda da barra de pesquisa */
+    border-radius: 5px;
+    width: 300px;
+    font-size: 16px;
+  }
+  
+  /* Estilo para o botão de pesquisa (se houver) */
+  .search-bar-button {
+    background-color: #0078d4; /* Cor do botão de pesquisa */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-bar-button:hover {
+    background-color: #004e9a; /* Cor do botão ao passar o mouse */
+  }
+  

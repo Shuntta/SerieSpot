@@ -10,6 +10,7 @@ import SignIn from "./views/SignIn";
 import MySeries from "./views/MySeries";
 import SerieHub from "./views/SerieHub";
 import ReviewDetails from "./components/ReviewDetails";
+import SerieHubNoId from "./views/SerieHubNoId";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/SignIn" element={<><Navbar /><SignIn /></>} />
             <Route path="/MySeries" element={<><Navbar /><MySeries /></>} />
             <Route path="/SerieHub/:movieId" element={<><Navbar /><SerieHub /></>} />
+            <Route path="/SerieHubNoId" element={<><Navbar /><SerieHubNoId /></>} />
           </Routes>
         </div>
       </div>
