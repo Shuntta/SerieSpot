@@ -10,7 +10,15 @@ import { useMovies } from '../components/MovieContext';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  const { addMovieToWatched, addMovieToLiked, addMovieToToWatch } = useMovies();
+  const { 
+    addMovieToWatched, 
+    addMovieToLiked, 
+    addMovieToToWatch,
+    likedMovies, // Adicionado
+    toWatchMovies, // Adicionado
+    watchedMovies // Adicionado
+  } = useMovies();
+
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -29,21 +37,21 @@ const Home = () => {
 
   const handleFavoriteClick = (movieId) => {
     const movie = movies.find(m => m.id === movieId);
-    if (movie) {
+    if (movie && !likedMovies.some(m => m.id === movie.id)) {
       addMovieToLiked(movie);
     }
   };
-  
+
   const handleToWatchClick = (movieId) => {
     const movie = movies.find(m => m.id === movieId);
-    if (movie) {
+    if (movie && !toWatchMovies.some(m => m.id === movie.id)) {
       addMovieToToWatch(movie);
     }
   };
-  
+
   const handleWatchedClick = (movieId) => {
     const movie = movies.find(m => m.id === movieId);
-    if (movie) {
+    if (movie && !watchedMovies.some(m => m.id === movie.id)) {
       addMovieToWatched(movie);
     }
   };

@@ -1,6 +1,6 @@
 /* MySeries.css */
 .mySeriesContainer {
-  padding: 20px;
+  padding: 70px;
 }
 
 .categorySection {
@@ -9,7 +9,7 @@
 
 .categoryTitle {
   color: rgb(255, 255, 255);
-  padding-left: 20px; /* Ajustar conforme necessário */
+  padding-left: 50px; /* Ajustar conforme necessário */
   margin-bottom: 10px;
 }
 
