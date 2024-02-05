@@ -12,17 +12,17 @@
     margin-left: 55px;
    
   }
-  
+    
   .card {
     background-color: rgb(244, 241, 241);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 370px;
-    height: 300px;
+    width: 500px; /* Aumentado de 300px para 500px */
+    height: 300px; /* Mantenha a altura como está */
     position: relative;
-  }
-  
+}
+
   .card-content {
     text-align: center;
     position: relative;

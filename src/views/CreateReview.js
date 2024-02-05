@@ -56,7 +56,7 @@ const CreateReview = () => {
     }).then(() => {
       console.log("new review added");
       setIsPending(false);
-      navigate("/"); // Alteração aqui
+      navigate("/SerieHub "); // Alteração aqui
     });
   };
 

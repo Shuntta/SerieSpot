@@ -9,6 +9,7 @@ import Login from "./views/Login";
 import SignIn from "./views/SignIn";
 import MySeries from "./views/MySeries"; // Importe a sua página MySeries
 import SerieHub from "./views/SerieHub";
+import ReviewDetails from "./components/ReviewDetails";
 
 function App() {
   return (
@@ -36,6 +37,19 @@ function App() {
                 </>
               }
             />
+
+
+            <Route
+              path="/review/:id"
+              element={
+                <>
+                  <Navbar />
+                  <ReviewDetails />
+                </>
+              }
+            />
+
+
 
             <Route
               path="/Login"

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import getCurrentDate from "../assets/utils/getCurrentDate";
-import StarRating from "./StarRating"; // Importe o componente StarRating
+import StarRating from "./StarRating"; 
 import "../assets/styles/ReviewList.css"
 
 const ReviewList = ({ reviews, title, date }) => {
