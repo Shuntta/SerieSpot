@@ -7,7 +7,7 @@ import "./App.css";
 import CreateReview from "./views/CreateReview";
 import Login from "./views/Login";
 import SignIn from "./views/SignIn";
-import MySeries from "./views/MySeries"; // Importe a sua página MySeries
+import MySeries from "./views/MySeries";
 import SerieHub from "./views/SerieHub";
 import ReviewDetails from "./components/ReviewDetails";
 
@@ -18,82 +18,13 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/landing" element={<LandingPage />} />
-            <Route
-              path="/"
-              element={
-                <>
-                  <Navbar />
-                  <Home />
-                </>
-              }
-            />
-
-            <Route
-              path="/CreateReview"
-              element={
-                <>
-                  <Navbar />
-                  <CreateReview />
-                </>
-              }
-            />
-
-
-            <Route
-              path="/review/:id"
-              element={
-                <>
-                  <Navbar />
-                  <ReviewDetails />
-                </>
-              }
-            />
-
-
-
-            <Route
-              path="/Login"
-              element={
-                <>
-                  <Navbar />
-                  <Login />
-                </>
-              }
-            />
-
-            <Route
-              path="/SignIn"
-              element={
-                <>
-                  <Navbar />
-                  <SignIn />
-                </>
-              }
-            />
-
-            
-            <Route
-              path="/MySeries"
-              element={
-                <>
-                  <Navbar />
-                  <MySeries />
-                </>
-              }
-            />
-
-
-              <Route
-              path="/SerieHub"
-              element={
-                <>
-                <Navbar />
-                <SerieHub />
-                </>
-              }
-              />
-
-
+            <Route path="/" element={<><Navbar /><Home /></>} />
+            <Route path="/CreateReview" element={<><Navbar /><CreateReview /></>} />
+            <Route path="/review/:id" element={<><Navbar /><ReviewDetails /></>} />
+            <Route path="/Login" element={<><Navbar /><Login /></>} />
+            <Route path="/SignIn" element={<><Navbar /><SignIn /></>} />
+            <Route path="/MySeries" element={<><Navbar /><MySeries /></>} />
+            <Route path="/SerieHub/:movieId" element={<><Navbar /><SerieHub /></>} />
           </Routes>
         </div>
       </div>

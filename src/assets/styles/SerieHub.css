@@ -1,3 +1,4 @@
+
 .left-SerieHub{
     display: flex;
     flex-direction: row;
@@ -22,16 +23,19 @@
     background-size: cover;
     z-index: 1;
     margin-bottom: 30px; /* Aumente o espaço abaixo dos cards */
+    margin-top: 55px;
 }
 
 
 .vertical-line-SerieHub {
     border-left: 2px solid rgba(255, 255, 255, 0.356);
-    height: 60%;
+    height: 55%;
     margin: 1% 23% ;
     position: absolute; /* Adicione esta linha para posicionar absolutamente em relação ao .left-SerieHub */
     top: 1; /* Ajuste conforme necessário para a posição vertical desejada */
     z-index: 1; /* Defina um valor maior do que o z-index do .movieTest */
+  left: 20%;
+
 }
 
 /* SerieHub.css */

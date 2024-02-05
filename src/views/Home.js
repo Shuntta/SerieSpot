@@ -43,7 +43,7 @@ const Home = () => {
                 <div className="movie" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})` }}>
                   {/* Aqui você pode adicionar mais informações do filme se desejar */}
                 </div>
-                <button className="Review">Review</button>
+                <Link to={`/SerieHub/${movie.id}`} className="Review">Review</Link>
               </div>
             </SwiperSlide>
           ))}
