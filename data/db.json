@@ -33,6 +33,20 @@
       "body": ".PreviewText {\n    position: static; /* Mude para static se não precisar posicionar absolutamente */\n    margin-top: 20px; /* Adicione uma margem superior se necessário */\n    text-align: center; /* Garante que o texto esteja centralizado */\n    color: #ffffff; /* Cor do texto, ajuste conforme necessário */\n}.PreviewText {\n    position: static; /* Mude para static se não precisar posicionar absolutamente */\n    margin-top: 20px; /* Adicione uma margem superior se necessário */\n    text-align: center; /* Garante que o texto esteja centralizado */\n    color: #ffffff; /* Cor do texto, ajuste conforme necessário */\n}.PreviewText {\n    position: static; /* Mude para static se não precisar posicionar absolutamente */\n    margin-top: 20px; /* Adicione uma margem superior se necessário */\n    text-align: center; /* Garante que o texto esteja centralizado */\n    color: #ffffff; /* Cor do texto, ajuste conforme necessário */\n}",
       "author": "Unknown Author",
       "rating": 5
+    },
+    {
+      "id": "25fc",
+      "title": "Aquaman and the Lost Kingdom",
+      "body": "ele é preto",
+      "author": "2023-12-20",
+      "rating": 1
+    },
+    {
+      "id": "68f1",
+      "title": "Fuck You",
+      "body": "Tes",
+      "author": "2018-08-08",
+      "rating": 1
     }
   ]
 }

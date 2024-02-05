@@ -18,48 +18,43 @@ const AutocompleteInput = ({ onTitleChange }) => {
 
   const handleClickSuggestion = (selectedValue) => {
     setInputValue(selectedValue.title);
-    onTitleChange(selectedValue.title, selectedValue.author);
+    onTitleChange(selectedValue.title, selectedValue.release_date);
     setSuggestions([]);
   };
 
   useEffect(() => {
     if (isFocused) {
-      const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${inputValue}`;
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          const uniqueTitles = new Set();
-          const titlesWithAuthors = data.items
-            ? data.items
-                .map((item) => ({
-                  title: item.volumeInfo.title,
-                  author: item.volumeInfo.authors
-                    ? item.volumeInfo.authors[0]
-                    : "Unknown Author",
+      const apiKey = "659b7a4b0ba0a85e50933e72a4644fa5"; // Substitua com sua chave de API do TMDb
+      const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${inputValue}`;
+      
+      if (inputValue.trim() !== "") { // Verifique se o campo de entrada não está vazio
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const titlesWithReleaseDates = data.results
+              ? data.results.map((movie) => ({
+                  title: movie.title,
+                  release_date: movie.release_date,
                 }))
-                .filter((book) => {
-                  const lowerCaseTitle = book.title.toLowerCase();
-                  if (!uniqueTitles.has(lowerCaseTitle)) {
-                    uniqueTitles.add(lowerCaseTitle);
-                    return lowerCaseTitle.includes(inputValue.toLowerCase());
-                  }
-                  return false;
-                })
-            : [];
-
-          setSuggestions(titlesWithAuthors);
-        })
-        .catch((error) => {
-          console.error("Erro ao buscar sugestões:", error);
-        });
+              : [];
+  
+            setSuggestions(titlesWithReleaseDates);
+          })
+          .catch((error) => {
+            console.error("Erro ao buscar sugestões:", error);
+          });
+      } else {
+        setSuggestions([]); // Limpar as sugestões quando o campo está vazio
+      }
     }
   }, [inputValue, isFocused]);
+  
 
   return (
     <div className="autocomplete-input-container">
-      <label>Book Title</label>
+      <label>Movie Title</label>
       <input
-        placeholder="Book Title"
+        placeholder="Movie Title"
         className="autocomplete-input"
         type="text"
         id="input1"
