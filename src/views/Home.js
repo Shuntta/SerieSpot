@@ -6,9 +6,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaHeart, FaPlus, FaEye } from "react-icons/fa"; // Importa os ícones
+import { useMovies } from '../components/MovieContext';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const { addMovieToWatched, addMovieToLiked, addMovieToToWatch } = useMovies();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -26,18 +28,24 @@ const Home = () => {
   }, []);
 
   const handleFavoriteClick = (movieId) => {
-    // Lógica para adicionar o filme aos favoritos e redirecionar para /MySeries
-    // Implemente essa lógica de acordo com a sua necessidade.
+    const movie = movies.find(m => m.id === movieId);
+    if (movie) {
+      addMovieToLiked(movie);
+    }
   };
-
+  
   const handleToWatchClick = (movieId) => {
-    // Lógica para adicionar o filme para assistir e redirecionar para /MySeries
-    // Implemente essa lógica de acordo com a sua necessidade.
+    const movie = movies.find(m => m.id === movieId);
+    if (movie) {
+      addMovieToToWatch(movie);
+    }
   };
-
+  
   const handleWatchedClick = (movieId) => {
-    // Lógica para marcar o filme como já visto e redirecionar para /MySeries
-    // Implemente essa lógica de acordo com a sua necessidade.
+    const movie = movies.find(m => m.id === movieId);
+    if (movie) {
+      addMovieToWatched(movie);
+    }
   };
 
   return (
