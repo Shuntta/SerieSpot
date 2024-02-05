@@ -148,3 +148,57 @@ body {
     padding-top: 25%;
 }
 
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Cor de fundo transparente */
+    border: none; /* Remove a borda padrão */
+    font-size: 24px; /* Tamanho da fonte */
+    color: white; /* Cor do texto */
+    cursor: pointer;
+    margin-top: 10px; /* Espaçamento superior para separar os botões */
+}
+
+.action-button:hover {
+    color: #6a0000; /* Cor do texto ao passar o mouse */
+}
+
+.FaHeart {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.FaPlus {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.FaEye {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.actions-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-around; /* Distribui o espaço entre os itens */
+    gap: 10px; /* Adiciona um espaço entre os itens */
+  }
+
+
+  .favorite-button {
+    background-color: transparent; /* Remove qualquer cor de fundo */
+    border: none; /* Remove a borda, se houver */
+    cursor: pointer; /* Mantém o cursor como ponteiro para indicar ação */
+    margin-left: 80%; /* Ajusta a margem à esquerda para mover o ícone para a direita */
+    color: white; /* Ajusta a cor do ícone, se necessário */
+}
+
+/* Se desejar aplicar o efeito somente ao ícone dentro do botão */
+.favorite-button svg {
+
+    margin-bottom: 70%;
+    font-size: 24px;
+}
+
+.favorite-button:hover {
+    color: #6a0000; /* Cor do ícone ao passar o mouse */
+}
