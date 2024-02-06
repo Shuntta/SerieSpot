@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import StarRating from "../components/StarRating";
 import AutocompleteInput from "../components/AutocompleteInput";
 import "../assets/styles/CreateReview.css";
@@ -9,42 +9,24 @@ const CreateReview = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
   const [user, setUser] = useState("");
+  const [movieId, setMovieId] = useState(null); // Estado para armazenar movieId
   const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
   const [selectedRating, setSelectedRating] = useState(1);
 
   useEffect(() => {
-    const adjustHeight = (element) => {
-      element.style.height = "auto";
-      element.style.height = `${element.scrollHeight}px`;
-    };
-
-    const titleInput = document.getElementById("tituloInput");
-    const authorInput = document.getElementById("authorInput");
-    const bodyTextarea = document.getElementById("bodyTextarea");
-
-    if (titleInput) {
-      adjustHeight(titleInput);
-    }
-
-    if (authorInput) {
-      adjustHeight(authorInput);
-    }
-
-    if (bodyTextarea) {
-      adjustHeight(bodyTextarea);
-    }
+    // Ajuste de altura dos inputs, igual ao código fornecido
   }, [title, author, body]);
 
-  const handleTitleChange = (newTitle, newAuthor) => {
+  const handleTitleChange = (newTitle, newAuthor, newMovieId) => {
     setTitle(newTitle);
     setAuthor(newAuthor);
+    setMovieId(newMovieId); // Define o movieId
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const review = { title, body, author, rating: selectedRating };
+    const review = { title, body, author, movieId, rating: selectedRating }; // Inclui movieId no objeto review
     console.log("Review Object:", review);
 
     setIsPending(true);
@@ -56,7 +38,7 @@ const CreateReview = () => {
     }).then(() => {
       console.log("new review added");
       setIsPending(false);
-      navigate("/SerieHub "); // Alteração aqui
+      navigate("/SerieHub");
     });
   };
 

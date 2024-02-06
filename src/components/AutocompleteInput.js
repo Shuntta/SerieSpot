@@ -1,6 +1,5 @@
-// AutocompleteInput.js
 import React, { useState, useEffect } from "react";
-import "./AutocompleteInput.css"; // Certifique-se de que o caminho está correto
+import "./AutocompleteInput.css";
 
 const AutocompleteInput = ({ onTitleChange }) => {
   const [inputValue, setInputValue] = useState("");
@@ -9,7 +8,7 @@ const AutocompleteInput = ({ onTitleChange }) => {
 
   useEffect(() => {
     const timerId = isFocused && inputValue.trim() !== "" && setTimeout(() => {
-      const apiKey = "659b7a4b0ba0a85e50933e72a4644fa5"; // Substitua com sua chave de API do TMDb
+      const apiKey = "659b7a4b0ba0a85e50933e72a4644fa5";
       const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(inputValue)}`;
       
       fetch(apiUrl)
@@ -19,14 +18,15 @@ const AutocompleteInput = ({ onTitleChange }) => {
             ? data.results.map(movie => ({
                 title: movie.title,
                 release_date: movie.release_date,
+                id: movie.id, // Inclui o ID do filme
               }))
             : [];
           setSuggestions(titlesWithReleaseDates);
         })
         .catch(error => console.error("Erro ao buscar sugestões:", error));
-    }, 500); // Debounce delay
+    }, 500);
 
-    return () => clearTimeout(timerId); // Cleanup
+    return () => clearTimeout(timerId);
   }, [inputValue, isFocused]);
 
   const handleFocus = () => {
@@ -34,14 +34,12 @@ const AutocompleteInput = ({ onTitleChange }) => {
   };
 
   const handleBlur = () => {
-    setTimeout(() => {
-      setIsFocused(false);
-    }, 100); // Ajuste o tempo se necessário
+    setTimeout(() => setIsFocused(false), 100);
   };
 
   const handleClickSuggestion = (selectedValue) => {
     setInputValue(selectedValue.title);
-    onTitleChange(selectedValue.title, selectedValue.release_date);
+    onTitleChange(selectedValue.title, selectedValue.release_date, selectedValue.id); // Passa o ID do filme
     setSuggestions([]);
   };
 

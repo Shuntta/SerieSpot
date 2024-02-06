@@ -12,7 +12,7 @@ export const SidebarData = [
   },
   {
     title: "New Review",
-    path: "/CreateReview",
+    path: "/CreateReview/:movieId",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
