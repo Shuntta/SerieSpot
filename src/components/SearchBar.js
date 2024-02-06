@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as AiIcons from 'react-icons/ai';
 
 const SearchBar = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
@@ -15,6 +16,7 @@ const SearchBar = ({ onSearch }) => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
+       <AiIcons.AiOutlineSearch className="search-icon" />
       <button onClick={handleSearch}>Search</button>
     </div>
   );

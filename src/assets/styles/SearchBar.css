@@ -1,0 +1,22 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para posicionar a lupa absolutamente */
+    flex-grow: 1; /* Para ocupar o espaço disponível */
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 20px 10px 40px; /* Espaço para a lupa */
+    border-radius: 20px; /* Borda arredondada */
+    border: none; /* Sem borda */
+    outline: none; /* Sem destaque ao focar */
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 10px; /* Posiciona a lupa dentro da barra de pesquisa */
+    color: #000; /* Ícone preto */
+    font-size: 1.5rem;
+  }
