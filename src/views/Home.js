@@ -59,7 +59,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="container">
-        <Link to="/CreateReview" className="New-review">New Review +</Link>
+        <Link to="/CreateReview/:movieId" className="New-review">New Review +</Link>
 
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}

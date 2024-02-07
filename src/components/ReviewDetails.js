@@ -11,7 +11,7 @@ const ReviewDetails = () => {
         fetch("http://localhost:8000/reviews/" + review.id, {
             method: "DELETE"
         }).then(() =>{
-        navigate.push("/");
+        navigate("/");
         })
     }
     return (  

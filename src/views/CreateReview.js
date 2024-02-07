@@ -38,7 +38,7 @@ const CreateReview = () => {
     }).then(() => {
       console.log("new review added");
       setIsPending(false);
-      navigate("/SerieHub");
+      navigate(`/SerieHub/${movieId}`);
     });
   };
 

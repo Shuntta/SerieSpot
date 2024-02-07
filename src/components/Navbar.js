@@ -23,7 +23,7 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <span className="logo">SerieSpot</span>
+          <Link to="/" className="logo">SerieSpot</Link>
           <AutocompleteInput onTitleChange={handleTitleChange} />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
