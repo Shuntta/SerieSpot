@@ -1,85 +1,149 @@
-
-.left-SerieHub{
-    display: flex;
-    flex-direction: row;
-    padding-left: 18%;
-    padding-top: 5%;
-    width: 100%;
-
-}
-.left-container{
-    height: 50px;
-    width: 50%;
- 
+.tudoSerieSpot {
+  display: flex;
+  flex-direction: row; /* Ou 'column', dependendo do layout desejado */
+  align-items: start; /* Alinha os itens ao topo */
+  justify-content: space-between; /* Distribui o espaço entre os itens de forma uniforme */
 }
 
+.left-SerieHub {
+  display: flex;
+  flex-direction: row;
+  padding-left: 18%;
+  width: 100%;
+}
+.left-container {
+  height: 100px;
+  width: 27%;
+}
 
 .movieTest {
-    width: 380px;
-    height: 550px;
-    font-size: 1em;
-    text-align: center;
-    border-radius: 15px;
-    background-size: cover;
-    z-index: 1;
-    margin-bottom: 30px; /* Aumente o espaço abaixo dos cards */
-    margin-top: 55px;
+  width: 380px;
+  height: 550px;
+  font-size: 1em;
+  text-align: center;
+  border-radius: 15px;
+  background-size: cover;
+
+  margin-bottom: 30px; /* Aumente o espaço abaixo dos cards */
+  margin-top: 38%;
 }
 
-
 .vertical-line-SerieHub {
-    border-left: 2px solid rgba(255, 255, 255, 0.356);
-    height: 55%;
-    margin: 1% 23% ;
-    position: absolute; /* Adicione esta linha para posicionar absolutamente em relação ao .left-SerieHub */
-    top: 1; /* Ajuste conforme necessário para a posição vertical desejada */
-    z-index: 1; /* Defina um valor maior do que o z-index do .movieTest */
-  left: 20%;
+  border-left: 2px solid rgba(255, 255, 255, 0.356);
+  height: 55%;
+  margin: 1% 23%;
+  position: absolute; /* Adicione esta linha para posicionar absolutamente em relação ao .left-SerieHub */
+  top: 1; /* Ajuste conforme necessário para a posição vertical desejada */
 
+  left: 20%;
 }
 
 /* SerieHub.css */
 .right-SerieHub {
-    flex-grow: 1;
+  flex-grow: 1;
 
-    padding-left: calc(50% + 1px); /* Ajuste conforme necessário */
-   
+  padding-left: calc(50% + 1px); /* Ajuste conforme necessário */
 }
 
 .reviews {
-    display: flex;
-    flex-direction: column; /* Mantém as reviews alinhadas verticalmente */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    justify-content: flex-start; /* Inicia o conteúdo no topo */
-    gap: 20px; /* Espaçamento entre reviews */
-    overflow-y: auto; /* Habilita a rolagem vertical se o conteúdo exceder a altura */
-    max-height: 500px; /* Ajuste conforme necessário para a altura desejada */
-    width: 100%; /* Certifique-se de que a largura esteja definida para preencher o contêiner pai */
-    padding-right: 15px; /* Adiciona espaço para a barra de rolagem */
-    margin-right: -15px; /* Ajusta o layout para acomodar o padding extra */
+  display: flex;
+  flex-direction: column; /* Mantém as reviews alinhadas verticalmente */
+  align-items: flex-start; /* Alinha os itens à esquerda */
+  justify-content: flex-start; /* Inicia o conteúdo no topo */
+  gap: 20px; /* Espaçamento entre reviews */
+  overflow-y: auto; /* Habilita a rolagem vertical se o conteúdo exceder a altura */
+  max-height: 500px; /* Ajuste conforme necessário para a altura desejada */
+  width: 100%; /* Certifique-se de que a largura esteja definida para preencher o contêiner pai */
+  padding-right: 15px; /* Adiciona espaço para a barra de rolagem */
+  margin-right: -15px; /* Ajusta o layout para acomodar o padding extra */
 }
-
 
 /* Estiliza a scrollbar para o Chrome, Edge, e Safari */
 .reviews::-webkit-scrollbar {
-    width: 1px; /* Largura da scrollbar */
+  width: 1px; /* Largura da scrollbar */
 }
 
 .reviews::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Cor de fundo da trilha da scrollbar */
+  background: #f1f1f1; /* Cor de fundo da trilha da scrollbar */
 }
 
 .reviews::-webkit-scrollbar-thumb {
-    background: #888; /* Cor da scrollbar */
-    border-radius: 6px; /* Arredondamento das bordas da scrollbar */
+  background: #888; /* Cor da scrollbar */
+  border-radius: 6px; /* Arredondamento das bordas da scrollbar */
 }
 
 .reviews::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Cor da scrollbar ao passar o mouse */
+  background: #555; /* Cor da scrollbar ao passar o mouse */
 }
 
 /* Estiliza a scrollbar para o Firefox */
 .reviews {
-    scrollbar-width: thin; /* "auto" ou "thin" */
-    scrollbar-color: #888 #f1f1f1; /* Cor da scrollbar e da trilha */
+  scrollbar-width: thin; /* "auto" ou "thin" */
+  scrollbar-color: #888 #f1f1f1; /* Cor da scrollbar e da trilha */
+}
+
+.movie-actions-container {
+  display: flex;
+  justify-content: center; /* Centraliza os botões no container */
+  gap: 10px; /* Adiciona um espaço entre os botões */
+}
+
+.botao-acao {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Cor de fundo transparente */
+  border: none; /* Remove a borda padrão */
+  font-size: 24px; /* Tamanho da fonte */
+  color: white; /* Cor do texto */
+  cursor: pointer;
+  margin-top: 10px; /* Espaçamento superior para separar os botões */
+}
+
+.botao-acao:hover {
+  color: #6a0000; /* Cor do texto ao passar o mouse */
+}
+
+.FaHeart {
+  margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.FaPlus {
+  margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.FaEye {
+  margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.actions-container {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-around; /* Distribui o espaço entre os itens */
+  gap: 10px; /* Adiciona um espaço entre os itens */
+}
+
+.favorite-button {
+  background-color: transparent; /* Remove qualquer cor de fundo */
+  border: none; /* Remove a borda, se houver */
+  cursor: pointer; /* Mantém o cursor como ponteiro para indicar ação */
+  margin-left: 80%; /* Ajusta a margem à esquerda para mover o ícone para a direita */
+  color: white; /* Ajusta a cor do ícone, se necessário */
+}
+
+/* Se desejar aplicar o efeito somente ao ícone dentro do botão */
+.favorite-button svg {
+  margin-bottom: 70%;
+  font-size: 24px;
+}
+
+.favorite-button:hover {
+  color: #6a0000; /* Cor do ícone ao passar o mouse */
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
