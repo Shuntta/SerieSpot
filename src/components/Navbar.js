@@ -26,7 +26,7 @@ function Navbar() {
           <Link to="/" className="logo">
             SerieSpot
           </Link>
-          <AutocompleteInput onTitleChange={handleTitleChange} />
+          <AutocompleteInput onTitleChange={handleTitleChange}/>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>

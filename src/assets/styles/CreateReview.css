@@ -1,17 +1,24 @@
+
+
 .container {
   display: flex;
   justify-content: space-between;
+  
 }
 
 .left {
-  width: 40%;
+  width: 45%;
   padding: 50px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
   margin-bottom: 10px;
   border-radius: 10px;
   margin-left: 50px;
   margin-top: 170px;
+  height: auto;
+  
 }
+
+
 
 .right {
   width: 35%;
@@ -19,6 +26,7 @@
   box-shadow: 0 0 10px rgb(255, 255, 255);
   margin-right: 90px;
   padding-bottom: 200px;
+  border-radius: 10px;
 }
 
 .divider {
@@ -47,7 +55,7 @@ select {
   margin-top: 3px;
   box-sizing: border-box;
   border-radius: 5px;
-  border-color: #fff;
+  border-color: #000000;
 }
 
 .button-group {
@@ -87,7 +95,7 @@ select {
   padding: 8px;
   box-sizing: border-box;
   background-color: #ffffff;
-  border: 1px solid #fff;
+  border: 1px solid #000000;
   border-radius: 4px;
 }
 
@@ -140,33 +148,46 @@ ul {
 
 .form-group1 textarea {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 7px;
   padding-bottom: 200px;
   margin-top: 10px;
-  border-color: #fff;
+  border-color: #00000000;
 }
+
+.form-group1{
+  resize:none;
+}
+
+
+
 
 .form-group textarea {
   border-radius: 10px;
-  border-color: #fff;
+  border-color: #000000;
+  color: #ffffff;
 }
 
 .author-input {
   font-family: "Lucida Console", Monospace;
   color: #ffffff;
   font-size: 13px;
+  background-color: rgba(0, 0, 0, 0);
+ 
+  border-color: rgba(0, 0, 0, 0);
 }
 
 .body-input {
   width: 100%;
-  border-color: rgb(255, 255, 255);
+  border-color: rgb(0, 0, 0);
   font-size: 15px;
+ 
 }
 
 .user-input {
-  border-color: rgb(255, 255, 255);
-  margin-top: 10px;
+  border-color: rgba(0, 0, 0, 0);
+  margin-top: 1px;
   height: 10px;
+  
 }
 
 .by {
@@ -176,15 +197,23 @@ ul {
 .form-group2 textarea {
   margin-left: 10px;
   border-radius: 10px;
-  border-color: #fff;
+  border-color: #000000;
 }
 
 .body-input,
-.user-input {
-  color: white;
+.user-input,
+.titulo--preview {
+  color: rgb(255, 255, 255);
+  background-color: #00000000;
+  resize: none;
+  border-color: #00000000;
 }
 
 .user-input,
 .user-input label {
-  color: white !important;
+  color: rgb(255, 255, 255) !important;
+  resize: none;
+  
 }
+
+
