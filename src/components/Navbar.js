@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { SidebarData } from "./Sidebar"; // Ajuste conforme necessário
 import { IconContext } from "react-icons";
-import AutocompleteInput from "./AutocompleteInput"; // Ajuste o caminho conforme necessário
-import "../assets/styles/Navbar.css"; // Ajuste conforme necessário
+import AutocompleteInput from "./AutocompleteInput";
+import "../assets/styles/Navbar.css";
+import { SidebarData } from "./Sidebar"; // Importe o SidebarData
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const isLoggedIn = localStorage.getItem("userId") !== null;
 
   const showSidebar = () => setSidebar(!sidebar);
 
   const handleTitleChange = (title, releaseDate) => {
     console.log("Selected movie:", title, releaseDate);
     // Aqui você pode implementar o que deseja fazer com o título do filme selecionado
+  };
+  const handleLogoutClick = (title) => {
+    if (title === "Logout") {
+      localStorage.clear();
+    }
   };
 
   return (
@@ -36,9 +42,15 @@ function Navbar() {
               </Link>
             </li>
             {SidebarData.map((item, index) => {
+              if (isLoggedIn && item.title === "Login") {
+                return null;
+              }
+              if (!isLoggedIn && item.title === "Logout") {
+                return null;
+              }
               return (
                 <li key={index} className={item.cName}>
-                  <Link to={item.path}>
+                  <Link to={item.path} onClick={() => handleLogoutClick(item.title)}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>
@@ -53,3 +65,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
