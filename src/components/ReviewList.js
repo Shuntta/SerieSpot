@@ -17,10 +17,11 @@ const ReviewList = ({ reviews, title, date }) => {
             <Link to={`/review/${review.id}`}>
               <div className="card-content">
                 <h2 className="title">{review.title}</h2>
-                <p>By</p>
-                <h3>{review.author}</h3>
-                <p className="Hora">{displayDate}</p>
-                <p className="PreviewText">{review.body.substring(0, 400)}</p>
+                <p style={{color:"grey"}}>Review posted in</p>
+                {/* <h3>{review.author}</h3> */}
+                <p className="Hora" style={{color:"grey"}}>{displayDate}</p>
+                <br></br>
+                
 
                 {/* Adicione o componente StarRating aqui */}
                 <StarRating
@@ -31,9 +32,11 @@ const ReviewList = ({ reviews, title, date }) => {
                     console.log(
                       `Review ${reviewId} recebeu uma nova classificação: ${newRating}`
                     );
+                    
                     // podes querer enviar isso para um servidor ou atualizar o estado do componente
                   }}
                 />
+                <p className="PreviewText">{review.body.substring(0, 400)}</p>
               </div>
             </Link>
           </div>

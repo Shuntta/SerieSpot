@@ -5,6 +5,7 @@ import { SidebarData } from "./Sidebar"; // Ajuste conforme necessário
 import { IconContext } from "react-icons";
 import AutocompleteInput from "./AutocompleteInput"; // Ajuste o caminho conforme necessário
 import "../assets/styles/Navbar.css"; // Ajuste conforme necessário
+import SearchBar from "./SearchBar";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);

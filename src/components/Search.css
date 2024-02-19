@@ -1,20 +1,9 @@
 /* AutocompleteInput.css */
-.autocomplete-input-container {
-  width: 100%;
-  
+.Search-input-container {
+  width: 20%;
+  margin-left: 450px;
+  border-radius: 10px;
 }
-
-.autocomplete-input {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #645979;
-  outline: none;
-  border-radius: 10px 10px 10px 10px;
-  background-color: #ffffff;
-  font-size: 16px;
-  align-items: center;
-}
-
 
 .list {
   width: 100%;

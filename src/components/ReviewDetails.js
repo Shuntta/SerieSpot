@@ -22,7 +22,7 @@ const ReviewDetails = () => {
             {review &&(
                 <article>
                     <h2>{review.title}</h2>
-                    <p>Written by {review.author}</p>
+                    <p>Premiered in {review.author}</p>
                     <br></br>
                     <div>{review.body}</div>
                     <br></br>
