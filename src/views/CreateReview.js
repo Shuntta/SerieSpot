@@ -26,21 +26,43 @@ const CreateReview = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const review = { title, body, author, movieId, rating: selectedRating }; // Inclui movieId no objeto review
+  
+    // Obtém o userId do localStorage
+    const userId = localStorage.getItem("userId");
+  
+    // Verifica se userId existe
+    if (!userId) {
+      console.error("userId not found in localStorage");
+      return;
+    }
+  
+    const review = {
+      body,
+      userId: parseInt(userId),
+      movieId,
+      rating: selectedRating
+    };
+  
     console.log("Review Object:", review);
-
+  
     setIsPending(true);
-
-    fetch("http://localhost:8000/reviews", {
+  
+    fetch("http://localhost:8080/createreviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review),
-    }).then(() => {
-      console.log("new review added");
-      setIsPending(false);
-      navigate(`/SerieHub/${movieId}`);
-    });
+    })
+      .then(() => {
+        console.log("new review added");
+        setIsPending(false);
+        navigate(`/SerieHub/${movieId}`);
+      })
+      .catch((error) => {
+        console.error("Error adding review:", error);
+        setIsPending(false);
+      });
   };
+  
 
   return (
     <div className="container flex-container">
@@ -109,8 +131,7 @@ const CreateReview = () => {
                 style={{ display: "flex", alignItems: "center" }}
               >
                 <label>Username</label>
-                <textarea
-                  required  
+                <textarea 
                   value={user}
                   onChange={(e) => setUser(e.target.value)}
                   style={{ height: "13px" }}

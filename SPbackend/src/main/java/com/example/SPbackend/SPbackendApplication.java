@@ -86,6 +86,31 @@ public class SPbackendApplication {
 						.body("Erro ao conectar-se ao banco de dados.");
 			}
 		}
+
+		@PostMapping("/createreviews")
+		public ResponseEntity<String> addReview(@RequestBody ReviewRequest reviewRequest) {
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String sql = "INSERT INTO avaliacoes (id_usuario, avaliacao, comentario, id_movie) VALUES (?, ?, ?, ?)";
+				try (PreparedStatement statement = connection.prepareStatement(sql)) {
+					statement.setInt(1, reviewRequest.getUserId());
+					statement.setInt(2, reviewRequest.getRating());
+					statement.setString(3, reviewRequest.getBody());
+					statement.setInt(4, reviewRequest.getMovieId());
+					int rowsInserted = statement.executeUpdate();
+					if (rowsInserted > 0) {
+						return ResponseEntity.ok("Revisão adicionada com sucesso!");
+					} else {
+						return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+								.body("Falha ao adicionar revisão.");
+					}
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body("Erro ao conectar-se ao banco de dados.");
+			}
+		}
+
 	}
 
 	public static class SignInRequest {
@@ -129,4 +154,43 @@ public class SPbackendApplication {
 			this.password = password;
 		}
 	}
+	public static class ReviewRequest {
+		private String body;
+		private int userId;
+		private int movieId;
+		private int rating;
+	
+		public String getBody() {
+			return body;
+		}
+	
+		public void setBody(String body) {
+			this.body = body;
+		}
+	
+		public int getUserId() {
+			return userId;
+		}
+	
+		public void setUserId(int userId) {
+			this.userId = userId;
+		}
+	
+		public int getMovieId() {
+			return movieId;
+		}
+	
+		public void setMovieId(int movieId) {
+			this.movieId = movieId;
+		}
+	
+		public int getRating() {
+			return rating;
+		}
+	
+		public void setRating(int rating) {
+			this.rating = rating;
+		}
+	}
+	
 }
