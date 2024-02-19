@@ -21,7 +21,6 @@ const ReviewList = ({ reviews, title, date }) => {
                 <h3>{review.author}</h3>
                 <p className="Hora">{displayDate}</p>
                 <p className="PreviewText">{review.body.substring(0, 400)}</p>
-
                 {/* Adicione o componente StarRating aqui */}
                 <StarRating
                   reviewId={review.id}
