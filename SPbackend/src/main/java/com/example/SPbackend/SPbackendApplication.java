@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class SPbackendApplication {
@@ -112,50 +115,218 @@ public class SPbackendApplication {
 		}
 
 		@PostMapping("/watched")
-public ResponseEntity<String> markAsWatched(@RequestBody WatchedRequest requestWatched) {
-    try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
-        String selectQuery = "SELECT watched FROM biblioteca_user WHERE user_id = ? AND movie_id = ?";
-        try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
-            selectStatement.setInt(1, requestWatched.getUserId());
-            selectStatement.setInt(2, requestWatched.getMovieId());
-            try (ResultSet resultSet = selectStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    boolean watched = resultSet.getBoolean("watched");
-                    String updateQuery = "UPDATE biblioteca_user SET watched = ? WHERE user_id = ? AND movie_id = ?";
-                    try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
-                        updateStatement.setBoolean(1, !watched); // Alterna o valor de watched
-                        updateStatement.setInt(2, requestWatched.getUserId());
-                        updateStatement.setInt(3, requestWatched.getMovieId());
-                        int rowsAffected = updateStatement.executeUpdate();
-                        if (rowsAffected > 0) {
-                            return ResponseEntity.ok("Movie marked as watched successfully.");
-                        } else {
-                            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                                    .body("Failed to mark movie as watched.");
-                        }
-                    }
-                } else {
-                    String insertQuery = "INSERT INTO biblioteca_user (user_id, movie_id, watched) VALUES (?, ?, true)";
-                    try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
-                        insertStatement.setInt(1, requestWatched.getUserId());
-                        insertStatement.setInt(2, requestWatched.getMovieId());
-                        int rowsAffected = insertStatement.executeUpdate();
-                        if (rowsAffected > 0) {
-                            return ResponseEntity.ok("Movie marked as watched successfully.");
-                        } else {
-                            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                                    .body("Failed to mark movie as watched.");
-                        }
-                    }
-                }
-            }
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body("Failed to connect to the database.");
-    }
-}
+		public ResponseEntity<String> markAsWatched(@RequestBody WatchedRequest requestWatched) {
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String selectQuery = "SELECT watched FROM biblioteca_user WHERE user_id = ? AND movie_id = ?";
+				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+					selectStatement.setInt(1, requestWatched.getUserId());
+					selectStatement.setInt(2, requestWatched.getMovieId());
+					try (ResultSet resultSet = selectStatement.executeQuery()) {
+						if (resultSet.next()) {
+							boolean watched = resultSet.getBoolean("watched");
+							String updateQuery = "UPDATE biblioteca_user SET watched = ? WHERE user_id = ? AND movie_id = ?";
+							try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+								updateStatement.setBoolean(1, !watched); // Alterna o valor de watched
+								updateStatement.setInt(2, requestWatched.getUserId());
+								updateStatement.setInt(3, requestWatched.getMovieId());
+								int rowsAffected = updateStatement.executeUpdate();
+								if (rowsAffected > 0) {
+									return ResponseEntity.ok("Movie marked as watched successfully.");
+								} else {
+									return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+											.body("Failed to mark movie as watched.");
+								}
+							}
+						} else {
+							String insertQuery = "INSERT INTO biblioteca_user (user_id, movie_id, watched) VALUES (?, ?, true)";
+							try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
+								insertStatement.setInt(1, requestWatched.getUserId());
+								insertStatement.setInt(2, requestWatched.getMovieId());
+								int rowsAffected = insertStatement.executeUpdate();
+								if (rowsAffected > 0) {
+									return ResponseEntity.ok("Movie marked as watched successfully.");
+								} else {
+									return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+											.body("Failed to mark movie as watched.");
+								}
+							}
+						}
+					}
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body("Failed to connect to the database.");
+			}
+		}
+
+		@PostMapping("/watch")
+		public ResponseEntity<String> markAsWatch(@RequestBody WatchedRequest requestWatch) {
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String selectQuery = "SELECT towatch FROM biblioteca_user WHERE user_id = ? AND movie_id = ?";
+				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+					selectStatement.setInt(1, requestWatch.getUserId());
+					selectStatement.setInt(2, requestWatch.getMovieId());
+					try (ResultSet resultSet = selectStatement.executeQuery()) {
+						if (resultSet.next()) {
+							boolean towatch = resultSet.getBoolean("towatch");
+							String updateQuery = "UPDATE biblioteca_user SET towatch = ? WHERE user_id = ? AND movie_id = ?";
+							try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+								updateStatement.setBoolean(1, !towatch); 
+								updateStatement.setInt(2, requestWatch.getUserId());
+								updateStatement.setInt(3, requestWatch.getMovieId());
+								int rowsAffected = updateStatement.executeUpdate();
+								if (rowsAffected > 0) {
+									return ResponseEntity.ok("Movie marked as to watch successfully.");
+								} else {
+									return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+											.body("Failed to mark movie as to watch.");
+								}
+							}
+						} else {
+							String insertQuery = "INSERT INTO biblioteca_user (user_id, movie_id, towatch) VALUES (?, ?, true)";
+							try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
+								insertStatement.setInt(1, requestWatch.getUserId());
+								insertStatement.setInt(2, requestWatch.getMovieId());
+								int rowsAffected = insertStatement.executeUpdate();
+								if (rowsAffected > 0) {
+									return ResponseEntity.ok("Movie marked as to watch successfully.");
+								} else {
+									return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+											.body("Failed to mark movie as to watch.");
+								}
+							}
+						}
+					}
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body("Failed to connect to the database.");
+			}
+		}
+
+		@PostMapping("/liked")
+		public ResponseEntity<String> markAsliked(@RequestBody WatchedRequest requestliked) {
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String selectQuery = "SELECT liked FROM biblioteca_user WHERE user_id = ? AND movie_id = ?";
+				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+					selectStatement.setInt(1, requestliked.getUserId());
+					selectStatement.setInt(2, requestliked.getMovieId());
+					try (ResultSet resultSet = selectStatement.executeQuery()) {
+						if (resultSet.next()) {
+							boolean liked = resultSet.getBoolean("liked");
+							String updateQuery = "UPDATE biblioteca_user SET liked = ? WHERE user_id = ? AND movie_id = ?";
+							try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+								updateStatement.setBoolean(1, !liked);
+								updateStatement.setInt(2, requestliked.getUserId());
+								updateStatement.setInt(3, requestliked.getMovieId());
+								int rowsAffected = updateStatement.executeUpdate();
+								if (rowsAffected > 0) {
+									return ResponseEntity.ok("Movie marked as to watch successfully.");
+								} else {
+									return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+											.body("Failed to mark movie as to watch.");
+								}
+							}
+						} else {
+							String insertQuery = "INSERT INTO biblioteca_user (user_id, movie_id, liked) VALUES (?, ?, true)";
+							try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
+								insertStatement.setInt(1, requestliked.getUserId());
+								insertStatement.setInt(2, requestliked.getMovieId());
+								int rowsAffected = insertStatement.executeUpdate();
+								if (rowsAffected > 0) {
+									return ResponseEntity.ok("Movie marked as to watch successfully.");
+								} else {
+									return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+											.body("Failed to mark movie as to watch.");
+								}
+							}
+						}
+					}
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body("Failed to connect to the database.");
+			}
+		}
+
+		@PostMapping("/watcheduser")
+		public ResponseEntity<List<Integer>> getWatchedMovies(@RequestBody WatchedUserRequest watchedUserRequest) {
+			int userId = watchedUserRequest.getUserId();
+			List<Integer> watchedMovies = new ArrayList<>();
+
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String selectQuery = "SELECT movie_id FROM biblioteca_user WHERE user_id = ? AND watched = true";
+
+				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+					selectStatement.setInt(1, userId);
+
+					try (ResultSet resultSet = selectStatement.executeQuery()) {
+						while (resultSet.next()) {
+							watchedMovies.add(resultSet.getInt("movie_id"));
+						}
+					}
+				}
+
+				return ResponseEntity.ok(watchedMovies);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body(null); // Retorna uma resposta vazia em caso de erro
+			}
+		}
+		@PostMapping("/likeduser")
+		public ResponseEntity<List<Integer>> getlikedMovies(@RequestBody WatchedUserRequest likedUserRequest) {
+			int userId = likedUserRequest.getUserId();
+			List<Integer> likedMovies = new ArrayList<>();
+
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String selectQuery = "SELECT movie_id FROM biblioteca_user WHERE user_id = ? AND liked = true";
+
+				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+					selectStatement.setInt(1, userId);
+
+					try (ResultSet resultSet = selectStatement.executeQuery()) {
+						while (resultSet.next()) {
+							likedMovies.add(resultSet.getInt("movie_id"));
+						}
+					}
+				}
+
+				return ResponseEntity.ok(likedMovies);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body(null); // Retorna uma resposta vazia em caso de erro
+			}
+		}
+		@PostMapping("/towatchuser")
+		public ResponseEntity<List<Integer>> gettowatchMovies(@RequestBody WatchedUserRequest towatchUserRequest) {
+			int userId = towatchUserRequest.getUserId();
+			List<Integer> towatchMovies = new ArrayList<>();
+
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String selectQuery = "SELECT movie_id FROM biblioteca_user WHERE user_id = ? AND towatch = true";
+
+				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+					selectStatement.setInt(1, userId);
+
+					try (ResultSet resultSet = selectStatement.executeQuery()) {
+						while (resultSet.next()) {
+							towatchMovies.add(resultSet.getInt("movie_id"));
+						}
+					}
+				}
+
+				return ResponseEntity.ok(towatchMovies);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body(null); // Retorna uma resposta vazia em caso de erro
+			}
+		}
 
 
 	}
@@ -261,5 +432,16 @@ public ResponseEntity<String> markAsWatched(@RequestBody WatchedRequest requestW
 			this.movieId = movieId;
 		}
 	}
+	public static class WatchedUserRequest {
+		private int userId;
+	
+		public int getUserId() {
+			return userId;
+		}
+	
+		public void setUserId(int userId) {
+			this.userId = userId;
+		}
+	}	
 
 }

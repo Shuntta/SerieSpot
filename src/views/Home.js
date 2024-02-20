@@ -35,17 +35,73 @@ const Home = () => {
     fetchMovies();
   }, []);
 
-  const handleFavoriteClick = (movieId) => {
-    const movie = movies.find(m => m.id === movieId);
-    if (movie && !likedMovies.some(m => m.id === movie.id)) {
-      addMovieToLiked(movie);
+  const handleFavoriteClick = async (movieId) => {
+    // Obtenha o userId do localStorage
+    const userId = localStorage.getItem('userId');
+
+    // Verifique se o userId está disponível no localStorage
+    if (!userId) {
+      console.error('Usuário não autenticado');
+      return;
+    }
+
+    try {
+      // Faça uma solicitação POST para o backend para adicionar o filme assistido
+      const response = await fetch('http://localhost:8080/liked', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: parseInt(userId),
+          movieId: parseInt(movieId),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao marcar o filme como liked.');
+      }
+
+      console.log('Filme marcado como liked com sucesso.');
+    } catch (error) {
+      console.error('Erro ao enviar solicitação para adicionar filme à lista de assistidos:', error);
+      // Exibir uma mensagem de erro ao usuário
+      alert('Erro ao marcar o filme como assistido. Por favor, tente novamente mais tarde.');
     }
   };
 
-  const handleToWatchClick = (movieId) => {
-    const movie = movies.find(m => m.id === movieId);
-    if (movie && !toWatchMovies.some(m => m.id === movie.id)) {
-      addMovieToToWatch(movie);
+  const handleToWatchClick = async (movieId) => {
+    // Obtenha o userId do localStorage
+    const userId = localStorage.getItem('userId');
+
+    // Verifique se o userId está disponível no localStorage
+    if (!userId) {
+      console.error('Usuário não autenticado');
+      return;
+    }
+
+    try {
+      // Faça uma solicitação POST para o backend para adicionar o filme assistido
+      const response = await fetch('http://localhost:8080/watch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: parseInt(userId),
+          movieId: parseInt(movieId),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao marcar o filme como assistido.');
+      }
+
+      console.log('Filme marcado como assistido com sucesso.');
+    } catch (error) {
+      console.error('Erro ao enviar solicitação para adicionar filme à lista de assistidos:', error);
+      // Exibir uma mensagem de erro ao usuário
+      alert('Erro ao marcar o filme como assistido. Por favor, tente novamente mais tarde.');
     }
   };
 
