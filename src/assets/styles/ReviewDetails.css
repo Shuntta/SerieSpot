@@ -19,3 +19,9 @@ button{
     cursor: pointer;
 
 }
+
+.PreviewTextContainer {
+    max-width: 100%; /* Define a largura máxima do contêiner */
+    word-wrap: break-word; /* Permite que o texto quebre para uma nova linha quando necessário */
+    white-space: pre-wrap; /* Mantém a formatação do texto, incluindo quebras de linha */
+}

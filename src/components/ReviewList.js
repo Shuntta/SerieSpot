@@ -36,7 +36,9 @@ const ReviewList = ({ reviews, title, date }) => {
                     // podes querer enviar isso para um servidor ou atualizar o estado do componente
                   }}
                 />
-                <p className="PreviewText">{review.body.substring(0, 400)}</p>
+                <p className="PreviewText" style={{fontSize: review.body.length <= 50 ? '16px' : review.body.length <= 100 ? '18px' : '20px' }}>{review.body.substring(0, 80)}</p>
+                <br></br>
+                <p style={{color:"grey"}}>Read more</p>
               </div>
             </Link>
           </div>

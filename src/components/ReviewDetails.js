@@ -4,7 +4,7 @@ import "../assets/styles/ReviewDetails.css";
 
 const ReviewDetails = () => {
     const { id } = useParams ();
-    const{ data: review, error, isPending, raiting} = useFetch("http://localhost:8000/reviews/"+id);
+    const{ data: review, error, isPending, rating} = useFetch("http://localhost:8000/reviews/"+id);
     const navigate = useNavigate();
 
     const handleClick= () =>     {
@@ -24,7 +24,7 @@ const ReviewDetails = () => {
                     <h2>{review.title}</h2>
                     <p>Premiered in {review.author}</p>
                     <br></br>
-                    <div>{review.body}</div>
+                    <div className="PreviewTextContainer">{review.body}</div>
                     <br></br>
                     <button className="delete" onClick={handleClick}>delete</button>
                 </article>
@@ -34,5 +34,4 @@ const ReviewDetails = () => {
     );
 }
 
-
-export default ReviewDetails;
+export default ReviewDetails

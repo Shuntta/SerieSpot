@@ -1,0 +1,44 @@
+.autocomplete-input-container2 {
+  width: 100%;
+  position: relative; /* Adicionamos position: relative para que possamos posicionar a lista de sugestões em relação a este container */
+}
+
+.autocomplete-input2 {
+   width: 20%;/* Ajuste conforme necessário */
+  border: none;
+  border-bottom: 1px solid #645979;
+  outline: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-size: 16px;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 475px; /* Ajuste conforme necessário */
+}
+
+.autocomplete-input2-list {
+  width: 20%; /* Largura fixa para a lista de sugestões */
+  background-color: #ffffff;
+  border-radius: 0 0 5px 5px;
+  position: absolute; /* Definimos position: absolute para posicionar a lista de sugestões */
+  top: calc(100% + 5px); /* Coloca a lista 5px abaixo da parte inferior do input */
+  left: 0; /* Alinha a lista com a esquerda do input */
+  z-index: 999;
+  margin-left: 475px;
+  top: 45px; /* Garante que a lista esteja acima de outros elementos */
+}
+
+
+.autocomplete-input2-item {
+  padding: 10px 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.autocomplete-input2-item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-input2-item:hover {
+  background-color: #dddddd;
+}

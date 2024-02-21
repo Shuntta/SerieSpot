@@ -3,9 +3,9 @@ import * as FaIcons from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./Sidebar"; // Ajuste conforme necessário
 import { IconContext } from "react-icons";
-import AutocompleteInput from "./AutocompleteInput"; // Ajuste o caminho conforme necessário
+import AutocompleteInput2 from "./AutocompleteInput2"; // Ajuste o caminho conforme necessário
 import "../assets/styles/Navbar.css"; // Ajuste conforme necessário
-import SearchBar from "./SearchBar";
+
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -27,7 +27,7 @@ function Navbar() {
           <Link to="/" className="logo">
             SerieSpot
           </Link>
-          <AutocompleteInput onTitleChange={handleTitleChange}/>
+          <AutocompleteInput2 onTitleChange={handleTitleChange}/>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>

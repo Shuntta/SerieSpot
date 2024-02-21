@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .review-list {
     width: 100%;
     max-width: 100%;
@@ -57,4 +61,7 @@
     margin-top: 20px; /* Adicione uma margem superior se necessário */
     text-align: center; /* Garante que o texto esteja centralizado */
     color: #ffffff; /* Cor do texto, ajuste conforme necessário */
+     /* Define a largura máxima do contêiner */
+     /* Permite que o texto quebre para uma nova linha quando necessário */
+    
 }

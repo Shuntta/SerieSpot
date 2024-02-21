@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./Search.css";
+import "./AutocompleteInput2.css";
+import { Link } from 'react-router-dom';
 
-const Search = ({ onTitleChange }) => {
+const AutocompleteInput2 = ({ onTitleChange, onSearch }) => {
   const [inputValue, setInputValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
+  
 
   useEffect(() => {
     const timerId = isFocused && inputValue.trim() !== "" && setTimeout(() => {
@@ -23,6 +25,7 @@ const Search = ({ onTitleChange }) => {
             : [];
           setSuggestions(titlesWithReleaseDates);
         })
+
         .catch(error => console.error("Erro ao buscar sugestões:", error));
     }, 500);
 
@@ -31,6 +34,10 @@ const Search = ({ onTitleChange }) => {
 
   const handleFocus = () => {
     setIsFocused(true);
+  };
+  
+  const handleSearch = () => {
+    onSearch(inputValue);
   };
 
   const handleBlur = () => {
@@ -44,30 +51,34 @@ const Search = ({ onTitleChange }) => {
   };
 
   return (
-    <div className="Search-input-container">
-      <input
-        placeholder="Search Movie Title"
-        className="search-input"
-        value={inputValue}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      {isFocused && suggestions.length > 0 && (
-        <ul className="list">
-          {suggestions.map((suggestion, index) => (
-            <li
-              key={index}
-              className="list-item"
-              onMouseDown={() => handleClickSuggestion(suggestion)}
-            >
-              {suggestion.title} ({suggestion.release_date.split("-")[0]})
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <div className="autocomplete-input-container2">
+  <input
+    placeholder="Search Movie Title"
+    className="autocomplete-input2"
+    value={inputValue}
+    onFocus={handleFocus}
+    onBlur={handleBlur}
+    onChange={(e) => setInputValue(e.target.value)}
+  />
+  <button onClick={handleSearch}>Search</button>
+  {isFocused && suggestions.length > 0 && (
+    <ul className="autocomplete-input2-list">
+      {suggestions.map((suggestion, index) => (
+        <li
+          key={index}
+          className="autocomplete-input2-item"
+          onMouseDown={() => handleClickSuggestion(suggestion)}
+          
+        >
+          
+          {suggestion.title} ({suggestion.release_date.split("-")[0]})
+          
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
   );
 };
 
-export default Search;
+export default AutocompleteInput2;

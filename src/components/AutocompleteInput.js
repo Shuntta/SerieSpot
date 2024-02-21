@@ -23,6 +23,7 @@ const AutocompleteInput = ({ onTitleChange }) => {
             : [];
           setSuggestions(titlesWithReleaseDates);
         })
+
         .catch(error => console.error("Erro ao buscar sugestões:", error));
     }, 500);
 
@@ -58,7 +59,7 @@ const AutocompleteInput = ({ onTitleChange }) => {
           {suggestions.map((suggestion, index) => (
             <li
               key={index}
-              className="list-item"
+              className="list-items"
               onMouseDown={() => handleClickSuggestion(suggestion)}
             >
               {suggestion.title} ({suggestion.release_date.split("-")[0]})
