@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -172,7 +171,7 @@ public class SPbackendApplication {
 							boolean towatch = resultSet.getBoolean("towatch");
 							String updateQuery = "UPDATE biblioteca_user SET towatch = ? WHERE user_id = ? AND movie_id = ?";
 							try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
-								updateStatement.setBoolean(1, !towatch); 
+								updateStatement.setBoolean(1, !towatch);
 								updateStatement.setInt(2, requestWatch.getUserId());
 								updateStatement.setInt(3, requestWatch.getMovieId());
 								int rowsAffected = updateStatement.executeUpdate();
@@ -277,6 +276,7 @@ public class SPbackendApplication {
 						.body(null); // Retorna uma resposta vazia em caso de erro
 			}
 		}
+
 		@PostMapping("/likeduser")
 		public ResponseEntity<List<Integer>> getlikedMovies(@RequestBody WatchedUserRequest likedUserRequest) {
 			int userId = likedUserRequest.getUserId();
@@ -302,6 +302,7 @@ public class SPbackendApplication {
 						.body(null); // Retorna uma resposta vazia em caso de erro
 			}
 		}
+
 		@PostMapping("/towatchuser")
 		public ResponseEntity<List<Integer>> gettowatchMovies(@RequestBody WatchedUserRequest towatchUserRequest) {
 			int userId = towatchUserRequest.getUserId();
@@ -328,6 +329,34 @@ public class SPbackendApplication {
 			}
 		}
 
+		@PostMapping("/reviewsmovieid")
+		public ResponseEntity<List<String>> getReviewsByMovieId(@RequestBody MovieIdRequest movieIdRequest) {
+			int movieId = movieIdRequest.getMovieId();
+			List<String> reviews = new ArrayList<>();
+
+			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+				String selectQuery = "SELECT avaliacao, comentario FROM avaliacoes WHERE id_movie = ?";
+
+				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+					selectStatement.setInt(1, movieId);
+
+					try (ResultSet resultSet = selectStatement.executeQuery()) {
+						while (resultSet.next()) {
+							int rating = resultSet.getInt("avaliacao");
+							String comment = resultSet.getString("comentario");
+							String review = "Rating: " + rating + ", Comment: " + comment;
+							reviews.add(review);
+						}
+					}
+				}
+
+				return ResponseEntity.ok(reviews);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body(null); // Retorna uma resposta vazia em caso de erro
+			}
+		}
 
 	}
 
@@ -432,16 +461,29 @@ public class SPbackendApplication {
 			this.movieId = movieId;
 		}
 	}
+
 	public static class WatchedUserRequest {
 		private int userId;
-	
+
 		public int getUserId() {
 			return userId;
 		}
-	
+
 		public void setUserId(int userId) {
 			this.userId = userId;
 		}
-	}	
+	}
+
+	public static class MovieIdRequest {
+		private int movieId;
+
+		public int getMovieId() {
+			return movieId;
+		}
+
+		public void setMovieId(int movieId) {
+			this.movieId = movieId;
+		}
+	}
 
 }

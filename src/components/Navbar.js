@@ -42,7 +42,7 @@ function Navbar() {
               </Link>
             </li>
             {SidebarData.map((item, index) => {
-              if (isLoggedIn && item.title === "Login") {
+              if ((isLoggedIn && item.title === "Login") || (!isLoggedIn && item.title === "My Series")) {
                 return null;
               }
               if (!isLoggedIn && item.title === "Logout") {
