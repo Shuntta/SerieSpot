@@ -329,34 +329,45 @@ public class SPbackendApplication {
 			}
 		}
 
-		@PostMapping("/reviewsmovieid")
-		public ResponseEntity<List<String>> getReviewsByMovieId(@RequestBody MovieIdRequest movieIdRequest) {
-			int movieId = movieIdRequest.getMovieId();
-			List<String> reviews = new ArrayList<>();
+		@PostMapping("/reviewsmoviesid")
+public ResponseEntity<List<MovieReview>> getMovieReviewsById(@RequestBody ReviewMoviesId requestBody) {
+    int movieId = requestBody.getMovieId(); // Obtendo o movieId do objeto ReviewMoviesId
 
-			try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
-				String selectQuery = "SELECT avaliacao, comentario FROM avaliacoes WHERE id_movie = ?";
+    List<MovieReview> movieReviews = new ArrayList<>();
 
-				try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
-					selectStatement.setInt(1, movieId);
+    try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+        System.out.println("Conexão estabelecida com o banco de dados.");
+        
+        String selectQuery = "SELECT avaliacao, comentario FROM avaliacoes WHERE id_movie = ?";
+        System.out.println("Query SQL: " + selectQuery);
+        
+        try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery)) {
+            selectStatement.setInt(1, movieId);
+            System.out.println("Parâmetro movieId definido: " + movieId);
 
-					try (ResultSet resultSet = selectStatement.executeQuery()) {
-						while (resultSet.next()) {
-							int rating = resultSet.getInt("avaliacao");
-							String comment = resultSet.getString("comentario");
-							String review = "Rating: " + rating + ", Comment: " + comment;
-							reviews.add(review);
-						}
-					}
-				}
+            try (ResultSet resultSet = selectStatement.executeQuery()) {
+                System.out.println("Executando a consulta...");
+                
+                while (resultSet.next()) {
+                    int avaliacao = resultSet.getInt("avaliacao");
+                    String comentario = resultSet.getString("comentario");
+                    movieReviews.add(new MovieReview(movieId, avaliacao, comentario));
+                    System.out.println("Adicionada avaliação: " + avaliacao + ", Comentário: " + comentario);
+                }
+            }
+        }
 
-				return ResponseEntity.ok(reviews);
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-						.body(null); // Retorna uma resposta vazia em caso de erro
-			}
-		}
+        System.out.println("Retornando as avaliações do filme com ID: " + movieId);
+        return ResponseEntity.ok(movieReviews);
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.err.println("Erro ao executar a consulta SQL: " + e.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body(null);
+    }
+}
+
+
 
 	}
 
@@ -474,16 +485,54 @@ public class SPbackendApplication {
 		}
 	}
 
-	public static class MovieIdRequest {
+	public static class MovieReview {
 		private int movieId;
-
+		private int avaliacao;
+		private String comentario;
+	
+		public MovieReview(int movieId, int avaliacao, String comentario) {
+			this.movieId = movieId;
+			this.avaliacao = avaliacao;
+			this.comentario = comentario;
+		}
+	
 		public int getMovieId() {
 			return movieId;
 		}
-
+	
+		public void setMovieId(int movieId) {
+			this.movieId = movieId;
+		}
+	
+		public int getAvaliacao() {
+			return avaliacao;
+		}
+	
+		public void setAvaliacao(int avaliacao) {
+			this.avaliacao = avaliacao;
+		}
+	
+		public String getComentario() {
+			return comentario;
+		}
+	
+		public void setComentario(String comentario) {
+			this.comentario = comentario;
+		}
+	}
+	public static class ReviewMoviesId {
+		private int movieId;
+	
+		public int getMovieId() {
+			return movieId;
+		}
+	
 		public void setMovieId(int movieId) {
 			this.movieId = movieId;
 		}
 	}
+	
+	
+	
 
 }

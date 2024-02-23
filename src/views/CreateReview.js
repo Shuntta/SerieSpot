@@ -33,6 +33,7 @@ const CreateReview = () => {
     // Verifica se userId existe
     if (!userId) {
       console.error("userId not found in localStorage");
+      navigate("/Login");
       return;
     }
   
@@ -164,7 +165,6 @@ const CreateReview = () => {
               <div className="form-group1" style={{ marginTop: "20px" }}>
                 <label>Review</label>
                 <textarea
-                  required
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
                   id="bodyTextarea"
