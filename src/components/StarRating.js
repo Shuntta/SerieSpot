@@ -6,9 +6,7 @@ const StarRating = ({ initialRating, onRatingChange, readOnly }) => {
   const stars = Array.from({ length: 5 }, (_, index) => index + 1);
 
   const handleRatingChange = (newRating) => {
-    // Somente chama a função se ela for fornecida e o componente não for somente leitura
     if (!readOnly) {
-      // Certifique-se de que onRatingChange é uma função antes de chamá-la
       typeof onRatingChange === "function" && onRatingChange(newRating);
     }
   };

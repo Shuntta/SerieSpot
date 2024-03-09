@@ -6,14 +6,14 @@ import "../assets/styles/ReviewList.css"
 
 const ReviewList = () => {
   const extractMovieIdFromUrl = (pathname) => {
-    const parts = pathname.split("/"); // Dividir a URL em partes
-    return parts[parts.length - 1]; // Retornar o último segmento da URL, que deve ser o ID do filme
+    const parts = pathname.split("/"); 
+    return parts[parts.length - 1];
   };
   
   const [reviews, setReviews] = useState([]);
   const [movieTitle, setMovieTitle] = useState("");
   const location = useLocation();
-  const movieId = extractMovieIdFromUrl(location.pathname); // Extrair o ID do filme da URL
+  const movieId = extractMovieIdFromUrl(location.pathname); 
 
   const fetchMovieReviews = async (movieId) => {
     try {

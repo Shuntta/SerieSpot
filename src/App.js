@@ -10,16 +10,16 @@ import MySeries from "./views/MySeries";
 import SerieHub from "./views/SerieHub";
 import ReviewDetails from "./components/ReviewDetails";
 import SerieHubNoId from "./views/SerieHubNoId";
-import { MovieProvider } from './components/MovieContext'; // Certifique-se de que o caminho está correto
+import { MovieProvider } from './components/MovieContext';
 import "./App.css";
 
 function App() {
   return (
     <Router>
-      <MovieProvider> {/* Envolve todos os componentes roteados com MovieProvider */}
+      <MovieProvider> {}
         <div className="App">
           <div className="content">
-            <Navbar /> {/* O Navbar pode ser movido para fora do Routes se for comum a todas as páginas */}
+            <Navbar /> {}
             <Routes>
               <Route path="/landing" element={<LandingPage />} />
               <Route path="/" element={<Home />} />

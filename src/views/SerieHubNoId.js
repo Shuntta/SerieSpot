@@ -42,7 +42,6 @@ const SerieHubNoId = () => {
         console.error("Erro ao buscar resultados da pesquisa:", error);
       }
     } else {
-      // Limpar os resultados se a consulta estiver vazia
       setSearchResults([]);
     }
   };
@@ -51,12 +50,10 @@ const SerieHubNoId = () => {
     <div className="tudoSerieSpot">
       {location.pathname === "/SerieHubNoId" && (
         <div className="search-bar-container">
-          {/* Adicione a barra de pesquisa aqui */}
           <SearchBar onSearch={handleSearch} />
         </div>
       )}
 
-      {/* Exiba os resultados da pesquisa */}
       {searchResults.length > 0 && (
         <div className="search-results">
           <h2>Resultados da Pesquisa:</h2>

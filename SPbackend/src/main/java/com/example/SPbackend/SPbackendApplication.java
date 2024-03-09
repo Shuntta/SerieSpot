@@ -273,7 +273,7 @@ public class SPbackendApplication {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-						.body(null); // Retorna uma resposta vazia em caso de erro
+						.body(null);
 			}
 		}
 
@@ -299,7 +299,7 @@ public class SPbackendApplication {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-						.body(null); // Retorna uma resposta vazia em caso de erro
+						.body(null);
 			}
 		}
 
@@ -325,13 +325,13 @@ public class SPbackendApplication {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-						.body(null); // Retorna uma resposta vazia em caso de erro
+						.body(null); 
 			}
 		}
 
 		@PostMapping("/reviewsmoviesid")
 public ResponseEntity<List<MovieReview>> getMovieReviewsById(@RequestBody ReviewMoviesId requestBody) {
-    int movieId = requestBody.getMovieId(); // Obtendo o movieId do objeto ReviewMoviesId
+    int movieId = requestBody.getMovieId(); 
 
     List<MovieReview> movieReviews = new ArrayList<>();
 

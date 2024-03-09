@@ -18,7 +18,7 @@ const AutocompleteInput = ({ onTitleChange }) => {
             ? data.results.map(movie => ({
                 title: movie.title,
                 release_date: movie.release_date,
-                id: movie.id, // Inclui o ID do filme
+                id: movie.id,
               }))
             : [];
           setSuggestions(titlesWithReleaseDates);
@@ -39,7 +39,7 @@ const AutocompleteInput = ({ onTitleChange }) => {
 
   const handleClickSuggestion = (selectedValue) => {
     setInputValue(selectedValue.title);
-    onTitleChange(selectedValue.title, selectedValue.release_date, selectedValue.id); // Passa o ID do filme
+    onTitleChange(selectedValue.title, selectedValue.release_date, selectedValue.id);
     setSuggestions([]);
   };
 

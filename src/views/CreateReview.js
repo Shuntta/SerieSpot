@@ -9,28 +9,25 @@ const CreateReview = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
   const [user, setUser] = useState("");
-  const [movieId, setMovieId] = useState(null); // Estado para armazenar movieId
+  const [movieId, setMovieId] = useState(null); 
   const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
   const [selectedRating, setSelectedRating] = useState(1);
 
   useEffect(() => {
-    // Ajuste de altura dos inputs, igual ao código fornecido
   }, [title, author, body]);
 
   const handleTitleChange = (newTitle, newAuthor, newMovieId) => {
     setTitle(newTitle);
     setAuthor(newAuthor);
-    setMovieId(newMovieId); // Define o movieId
+    setMovieId(newMovieId); 
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    // Obtém o userId do localStorage
     const userId = localStorage.getItem("userId");
-  
-    // Verifica se userId existe
+
     if (!userId) {
       console.error("userId not found in localStorage");
       navigate("/Login");

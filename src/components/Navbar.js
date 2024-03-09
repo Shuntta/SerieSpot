@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import AutocompleteInput from "./AutocompleteInput";
 import "../assets/styles/Navbar.css";
-import { SidebarData } from "./Sidebar"; // Importe o SidebarData
+import { SidebarData } from "./Sidebar"; 
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -14,7 +14,6 @@ function Navbar() {
 
   const handleTitleChange = (title, releaseDate) => {
     console.log("Selected movie:", title, releaseDate);
-    // Aqui você pode implementar o que deseja fazer com o título do filme selecionado
   };
   const handleLogoutClick = (title) => {
     if (title === "Logout") {
@@ -38,7 +37,6 @@ function Navbar() {
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
-                {/* Coloque aqui o botão para fechar o menu, se necessário */}
               </Link>
             </li>
             {SidebarData.map((item, index) => {

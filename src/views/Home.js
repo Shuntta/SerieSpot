@@ -14,19 +14,18 @@ const Home = () => {
     addMovieToWatched, 
     addMovieToLiked, 
     addMovieToToWatch,
-    likedMovies, // Adicionado
-    toWatchMovies, // Adicionado
-    watchedMovies // Adicionado
+    likedMovies, 
+    toWatchMovies, 
+    watchedMovies 
   } = useMovies();
 
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        // Substitua pela sua chave de API diretamente
         const apiKey = '659b7a4b0ba0a85e50933e72a4644fa5';
         const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`);
-        setMovies(response.data.results.slice(0, 6)); // Limita a resposta aos primeiros 6 filmes
+        setMovies(response.data.results.slice(0, 6));
       } catch (error) {
         console.error("Erro ao buscar filmes:", error);
       }
@@ -36,17 +35,13 @@ const Home = () => {
   }, []);
 
   const handleFavoriteClick = async (movieId) => {
-    // Obtenha o userId do localStorage
     const userId = localStorage.getItem('userId');
-
-    // Verifique se o userId está disponível no localStorage
     if (!userId) {
       console.error('Usuário não autenticado');
       return;
     }
 
     try {
-      // Faça uma solicitação POST para o backend para adicionar o filme assistido
       const response = await fetch('http://localhost:8080/liked', {
         method: 'POST',
         headers: {
@@ -65,23 +60,18 @@ const Home = () => {
       console.log('Filme marcado como liked com sucesso.');
     } catch (error) {
       console.error('Erro ao enviar solicitação para adicionar filme à lista de assistidos:', error);
-      // Exibir uma mensagem de erro ao usuário
       alert('Erro ao marcar o filme como assistido. Por favor, tente novamente mais tarde.');
     }
   };
 
   const handleToWatchClick = async (movieId) => {
-    // Obtenha o userId do localStorage
     const userId = localStorage.getItem('userId');
-
-    // Verifique se o userId está disponível no localStorage
     if (!userId) {
       console.error('Usuário não autenticado');
       return;
     }
 
     try {
-      // Faça uma solicitação POST para o backend para adicionar o filme assistido
       const response = await fetch('http://localhost:8080/watch', {
         method: 'POST',
         headers: {
@@ -100,23 +90,18 @@ const Home = () => {
       console.log('Filme marcado como assistido com sucesso.');
     } catch (error) {
       console.error('Erro ao enviar solicitação para adicionar filme à lista de assistidos:', error);
-      // Exibir uma mensagem de erro ao usuário
       alert('Erro ao marcar o filme como assistido. Por favor, tente novamente mais tarde.');
     }
   };
 
   const handleWatchedClick = async (movieId) => {
-    // Obtenha o userId do localStorage
     const userId = localStorage.getItem('userId');
-
-    // Verifique se o userId está disponível no localStorage
     if (!userId) {
       console.error('Usuário não autenticado');
       return;
     }
 
     try {
-      // Faça uma solicitação POST para o backend para adicionar o filme assistido
       const response = await fetch('http://localhost:8080/watched', {
         method: 'POST',
         headers: {
@@ -135,7 +120,6 @@ const Home = () => {
       console.log('Filme marcado como assistido com sucesso.');
     } catch (error) {
       console.error('Erro ao enviar solicitação para adicionar filme à lista de assistidos:', error);
-      // Exibir uma mensagem de erro ao usuário
       alert('Erro ao marcar o filme como assistido. Por favor, tente novamente mais tarde.');
     }
   };
@@ -162,15 +146,11 @@ const Home = () => {
           <FaHeart />
         </button>
       </div>
-      {/* Contêiner para ações, com o botão Review primeiro */}
       <div className="actions-container">
-        {/* Botão "Review" */}
         <Link to={`/SerieHub/${movie.id}`} className="Review">Review</Link>
-        {/* Botão "Para Assistir" */}
         <button className="action-button" onClick={() => handleToWatchClick(movie.id)}>
           <FaPlus />
         </button>
-        {/* Botão "Já Visto" */}
         <button className="action-button" onClick={() => handleWatchedClick(movie.id)}>
           <FaEye />
         </button>
